@@ -13,7 +13,7 @@ from constants import CHROMA_SETTINGS
 import os 
 import shutil
 
-
+## Chargement du tokenizer et du modèle depuis les fichiers pré-entraînés
 checkpoint = "LaMini-T5-738M"
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 base_model = AutoModelForSeq2SeqLM.from_pretrained(
@@ -22,13 +22,14 @@ base_model = AutoModelForSeq2SeqLM.from_pretrained(
     torch_dtype = torch.float32
 )
 
+## Fonction pour créer le pipeline de génération de texte avec le modèle HuggingFace
 @st.cache_resource #Pour éviter de charger le modèle à chaque fois durant l'exécution 
 def llm_pipeline():
     pipe = pipeline(
         'text2text-generation',
         model = base_model,
         tokenizer = tokenizer,
-        max_length = 256,
+        max_length = 512,
         do_sample = True,
         temperature = 0.3,
         top_p= 0.95,
@@ -37,6 +38,7 @@ def llm_pipeline():
     return local_llm
 
 
+## Fonction pour créer un objet de question-réponse basé sur la récupération (RetrievalQA)
 @st.cache_resource
 def qa_llm():
     # Supprimer l'index existant pour éviter les problèmes de corruption
@@ -55,7 +57,7 @@ def qa_llm():
     return qa
 
 
-
+## Fonction pour traiter la réponse à une question donnée
 def process_answer(instruction):
     response = ''
     instruction = instruction
@@ -65,7 +67,7 @@ def process_answer(instruction):
     return answer
 
 
-
+# Fonction principale pour interagir avec l'utilisateur via streamlit
 def main(): 
     st.title("Question & Answer app PDF 🦜📄")
     with st.expander("About the app") : 
