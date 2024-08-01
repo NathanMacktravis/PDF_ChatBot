@@ -17,7 +17,7 @@ Ce projet est une application de **Question & Réponse Générative** (RAG) qui 
 - **Streamlit** :  Interface utilisateur interactive utilisée au départ pour le développement et le test de l'application. 
 Cependant, le projet dispose de deux versions : 
     - procedural_app.py : pour une utilisation directe via la console.
-    - streamlit_app.py : pour une utilisation avec l'interface streeamlit
+    - streamlit_app.py : pour une utilisation avec l'interface streamlit
 
 - **Python** : Le langage de programmation principal utilisé pour intégrer toutes les bibliothèques et technologies mentionnées ci-dessus, en orchestrant l'ensemble du flux de travail du projet.
 
