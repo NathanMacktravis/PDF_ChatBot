@@ -6,7 +6,7 @@ Ce projet est une application de **Question & Réponse Générative** (RAG) qui 
 
 - **Transformers (Hugging Face)** : Utilisé dans ce projet pour charger et exécuter le modèle de langage pré-entraîné *LaMini-T5-738M*.
 
-- **PyTorch** : Framework utilisé pour manipuler les modèles de deep learninget pour gérer les opérations sur les GPU afin d'accélérer l'inférence du modèle.
+- **PyTorch** : Framework utilisé pour manipuler les modèles de deep learning et pour gérer les opérations sur les GPU afin d'accélérer l'inférence du modèle.
 
 - **LangChain** : Utilisé pour orchestrer les différentes étapes du pipeline de traitement de texte, y compris l'extraction de réponses pertinentes à partir des documents PDF et la génération de réponses. 
 
